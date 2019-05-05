@@ -16,9 +16,13 @@ class AuthorizationService {
       }
       final Uri encoded = Uri.parse(url);
       final String code = encoded.queryParameters['code'];
-      _loadToken(code);
-      _flutterWebViewPlugin.close();
-      onSignedIn();
+      _loadToken(code).then((bool succeeded) {
+        if (!succeeded) {
+          return;
+        }
+        _flutterWebViewPlugin.close();
+        onSignedIn();
+      });
     });
   }
   final String _serverRoot = 'https://api.gitkraken.com/oauth/';
@@ -56,7 +60,7 @@ class AuthorizationService {
     );
   }
 
-  Future<void> _loadToken(String code) async {
+  Future<bool> _loadToken(String code) async {
     final GloConfig gloConfig = await _readConfig();
     final http.Response response =
         await http.post('${_serverRoot}access_token', body: <String, String>{
@@ -68,14 +72,17 @@ class AuthorizationService {
     final Map<String, dynamic> jsonData = json.decode(response.body);
     final String token = jsonData['access_token'];
     if (token == null || token.isEmpty) {
-      return;
+      return false;
     }
     TokenStorageService().setMobileToken(token);
+    return true;
   }
 
   Future<GloConfig> _readConfig() async {
-    final String fileData = await rootBundle.loadString('assets/glo_config.json');
-    final Map<String, String> jsonData = json.decode(fileData);
+    final String fileData =
+        await rootBundle.loadString('assets/glo_config.json');
+    final Map<String, String> jsonData =
+        Map<String, String>.from(json.decode(fileData));
     return GloConfig.fromJson(jsonData);
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:glo_insta_bug_reporter/src/glo_reportable_widget_state.dart';
+import 'package:glo_insta_bug_reporter/glo_reportable_widget_state.dart';
 
 void main() => runApp(MyApp());
 

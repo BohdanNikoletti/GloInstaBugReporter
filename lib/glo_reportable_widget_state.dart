@@ -17,7 +17,6 @@ abstract class GloReportableWidgetState<T extends StatefulWidget>
       ),
       onTap: () {
         _getScreenShotImage(context);
-        const BoardPicker(title: 'Board Picker');
       },
     );
   }
@@ -26,7 +25,6 @@ abstract class GloReportableWidgetState<T extends StatefulWidget>
 
   Future<void> _getScreenShotImage(BuildContext context) async {
     final ui.Image image = await _capturePng();
-    debugPrint('im height: ${image.height}, im width: ${image.width}');
     Navigator.push(
       context,
       MaterialPageRoute<BoardPicker>(
