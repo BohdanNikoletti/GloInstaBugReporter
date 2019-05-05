@@ -20,6 +20,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.2
+  glo_insta_bug_reporter:
+    path: ../
 
 dev_dependencies:
   flutter_test:

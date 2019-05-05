@@ -58,7 +58,7 @@ packages:
     source: hosted
     version: "1.0.4"
   build_runner:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: build_runner
       url: "https://pub.dartlang.org"
@@ -187,7 +187,7 @@ packages:
     source: hosted
     version: "0.14.0+2"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -201,7 +201,7 @@ packages:
     source: hosted
     version: "2.0.6"
   http_parser:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http_parser
       url: "https://pub.dartlang.org"
@@ -222,14 +222,14 @@ packages:
     source: hosted
     version: "0.6.1+1"
   json_annotation:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
   json_serializable:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: json_serializable
       url: "https://pub.dartlang.org"
