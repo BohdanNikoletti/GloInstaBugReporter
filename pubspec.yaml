@@ -1,0 +1,27 @@
+name: glo_insta_bug_reporter
+description: A new Flutter package project.
+version: 0.0.1
+author:
+homepage:
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  oauth2: any
+  flutter_webview_plugin: any
+  shared_preferences: any
+
+dev_dependencies:
+  build_runner: any
+  json_serializable: any
+  json_annotation: any
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/glo_config.json
