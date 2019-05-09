@@ -3,6 +3,9 @@
 
 [![Version](https://img.shields.io/badge/version-0.0.1-blue.svg)](https://pub.dartlang.org/packages/fluro)
 
+# glo_insta_bug_reporter
+The package provides an easy way to instantly capture screenshot, edit it, describe and create card on glo board instantly in Flutter project.
+
 ## Features
 - Capture screenshot
 - Add description and title for created task

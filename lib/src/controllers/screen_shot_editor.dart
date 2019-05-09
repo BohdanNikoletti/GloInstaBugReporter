@@ -87,7 +87,7 @@ class _ScreenShotEditorState extends State<ScreenShotEditor> {
             )),
         Positioned(
             left: 20.0,
-            top: 20.0,
+            top: 28.0,
             child: AnimatedOpacity(
               duration: _controlsAppearDuration,
               opacity: _controlsOpacity,

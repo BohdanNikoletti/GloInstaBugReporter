@@ -5,8 +5,7 @@ part 'glo_config.g.dart';
 //flutter packages pub run build_runner watch
 @JsonSerializable()
 class GloConfig {
-  GloConfig(
-      {this.identifier, this.secret});
+  GloConfig({this.identifier, this.secret});
   factory GloConfig.fromJson(Map<String, dynamic> json) =>
       _$GloConfigFromJson(json);
 
@@ -17,5 +16,4 @@ class GloConfig {
 
   @override
   String toString() => toJson().toString();
-
 }

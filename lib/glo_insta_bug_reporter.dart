@@ -23,11 +23,13 @@ abstract class GloReportableWidgetState<T extends StatefulWidget>
     });
     super.initState();
   }
+
   @override
   void dispose() {
     _detector.stopListening();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
@@ -44,15 +46,15 @@ abstract class GloReportableWidgetState<T extends StatefulWidget>
       context,
       MaterialPageRoute<BoardPicker>(
           builder: (BuildContext context) => BoardPicker(
-            title: 'Board Picker',
-            image: image,
-          )),
+                title: 'Board Picker',
+                image: image,
+              )),
     );
   }
 
   Future<ui.Image> _capturePng() async {
     final RenderRepaintBoundary boundary =
-    previewContainer.currentContext.findRenderObject();
+        previewContainer.currentContext.findRenderObject();
     final ui.Image image = await boundary.toImage();
     return image;
   }
