@@ -15,7 +15,6 @@ class CardDescription {
   @JsonKey(name: 'updated_date')
   final String updatedDate;
 
-
   Map<String, dynamic> toJson() => _$CardDescriptionToJson(this);
 
   @override

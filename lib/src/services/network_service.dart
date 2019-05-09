@@ -19,13 +19,14 @@ Future<GloCard> create(
   String boardId,
 ) async {
   final String token = await TokenStorageService().getMobileToken();
-  final String  newCardJSON = json.encode(card.toJson());
-  final http.Response response = await http.post('${_SERVER_ROOT}boards/$boardId/cards',
-      headers: <String, String>{
-        HttpHeaders.authorizationHeader: 'Bearer $token',
-        HttpHeaders.contentTypeHeader: 'application\/json'
-      },
-      body: newCardJSON);
+  final String newCardJSON = json.encode(card.toJson());
+  final http.Response response =
+      await http.post('${_SERVER_ROOT}boards/$boardId/cards',
+          headers: <String, String>{
+            HttpHeaders.authorizationHeader: 'Bearer $token',
+            HttpHeaders.contentTypeHeader: 'application\/json'
+          },
+          body: newCardJSON);
   if (response.statusCode == 201 || response.statusCode == 200) {
     return GloCard.fromJson(json.decode(response.body));
   } else {
@@ -39,8 +40,11 @@ Future<List<GloBoard>> getBoards({int page, int perPage}) async {
   final String pageParam = 'page=$page';
   final String perPageParam = 'per_page=$perPage';
   final String token = await TokenStorageService().getMobileToken();
-  final http.Response response = await http.get('${_SERVER_ROOT}boards?$fieldsParam&&$pageParam&&$perPageParam',
-      headers: <String, String>{HttpHeaders.authorizationHeader: 'Bearer $token'});
+  final http.Response response = await http.get(
+      '${_SERVER_ROOT}boards?$fieldsParam&&$pageParam&&$perPageParam',
+      headers: <String, String>{
+        HttpHeaders.authorizationHeader: 'Bearer $token'
+      });
   if (response.statusCode == 200) {
     final List<dynamic> responseArray = json.decode(response.body);
     return responseArray
@@ -57,7 +61,7 @@ Future<GloCard> updateCard(GloCard card, String boardId) async {
   final String newCardJSON = json.encode(card.toJson());
   final http.Response response =
       await http.post('${_SERVER_ROOT}boards/$boardId/cards/${card.id}',
-          headers: <String, String> {
+          headers: <String, String>{
             HttpHeaders.authorizationHeader: 'Bearer $token',
             HttpHeaders.contentTypeHeader: 'application\/json'
           },
@@ -72,7 +76,8 @@ Future<GloCard> updateCard(GloCard card, String boardId) async {
 
 Future<Attachment> upload(
     {ui.Image image, String boardId, String cardId}) async {
-  final ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+  final ByteData byteData =
+      await image.toByteData(format: ui.ImageByteFormat.png);
   final Uint8List imgBytes = byteData.buffer.asUint8List();
   final String token = await TokenStorageService().getMobileToken();
   final Uri uri =
@@ -84,7 +89,8 @@ Future<Attachment> upload(
   });
   request.files.add(http.MultipartFile.fromBytes('file', imgBytes,
       filename: 'screenShot.png', contentType: MediaType('image', 'png')));
-  final http.Response response = await http.Response.fromStream(await request.send());
+  final http.Response response =
+      await http.Response.fromStream(await request.send());
   if (response.statusCode == 201) {
     final Map<String, dynamic> decodedResponse = json.decode(response.body);
     return Attachment.fromJson(decodedResponse);

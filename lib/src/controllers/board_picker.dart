@@ -38,11 +38,12 @@ class _BoardPickerState extends State<BoardPicker> {
       body: _buildBody(),
     );
   }
-  Widget _buildBody(){
+
+  Widget _buildBody() {
     switch (_currentState) {
       case LoadingState.fetchFinished:
       case LoadingState.allFetched:
-        return  ListView.builder(
+        return ListView.builder(
             controller: _scrollController,
             itemBuilder: (BuildContext context, int index) =>
                 _buildBoardView(_boards[index]),
@@ -58,6 +59,7 @@ class _BoardPickerState extends State<BoardPicker> {
     assert(false);
     return null;
   }
+
   @override
   void initState() {
     super.initState();

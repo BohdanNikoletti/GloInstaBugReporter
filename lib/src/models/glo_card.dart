@@ -7,19 +7,19 @@ part 'glo_card.g.dart';
 class GloCard {
   GloCard(
       {this.position,
-        this.boardId,
-        this.columnId,
-        this.dueDate,
-        this.commentCount,
-        this.attachmentCount,
-        this.completedTaskCount,
-        this.totalTaskCount,
-        this.id,
-        this.name,
-        this.updatedDate,
-        this.description,
-        this.archivedDate,
-        this.createdDate});
+      this.boardId,
+      this.columnId,
+      this.dueDate,
+      this.commentCount,
+      this.attachmentCount,
+      this.completedTaskCount,
+      this.totalTaskCount,
+      this.id,
+      this.name,
+      this.updatedDate,
+      this.description,
+      this.archivedDate,
+      this.createdDate});
 
   factory GloCard.fromJson(Map<String, dynamic> json) =>
       _$GloCardFromJson(json);

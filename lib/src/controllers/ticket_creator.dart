@@ -8,7 +8,8 @@ import 'package:glo_insta_bug_reporter/src/services/network_service.dart';
 import 'package:glo_insta_bug_reporter/src/controllers/screen_shot_editor.dart';
 
 class TicketCreator extends StatefulWidget {
-  const TicketCreator({Key key, this.title, this.image, this.boardId, this.columnId})
+  const TicketCreator(
+      {Key key, this.title, this.image, this.boardId, this.columnId})
       : super(key: key);
   final String title;
   final ui.Image image;
@@ -24,7 +25,7 @@ class _TicketCreatorState extends State<TicketCreator> {
   Uint8List _imgBytes = Uint8List.fromList(<int>[]);
   ui.Image _image;
   static const String _defaultDescriptionText = 'I\'ve found a bug here';
-  static const String _defaultTaskTitleText ='UI bug';
+  static const String _defaultTaskTitleText = 'UI bug';
 
   String _descriptionText = _defaultDescriptionText;
   String _taskTitleText = _defaultTaskTitleText;
@@ -37,8 +38,9 @@ class _TicketCreatorState extends State<TicketCreator> {
         title: Text(widget.title),
       ),
       body: ListView.builder(
-        itemCount: uiItemsCount,
-          itemBuilder: (BuildContext context, int index) => _buildListItem(index)),
+          itemCount: uiItemsCount,
+          itemBuilder: (BuildContext context, int index) =>
+              _buildListItem(index)),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           createAndSendTask();
@@ -51,7 +53,9 @@ class _TicketCreatorState extends State<TicketCreator> {
 
   Future<void> createAndSendTask() async {
     final GloCard newCard = GloCard(
-        boardId: widget.boardId, columnId: widget.columnId, name: _taskTitleText);
+        boardId: widget.boardId,
+        columnId: widget.columnId,
+        name: _taskTitleText);
     final GloCard createdCard = await create(newCard, widget.boardId);
     final Attachment attachment = await upload(
         boardId: widget.boardId, cardId: createdCard.id, image: _image);
@@ -79,8 +83,8 @@ class _TicketCreatorState extends State<TicketCreator> {
             decoration: InputDecoration(
               hintText: 'Task description',
             ),
-            onChanged:  (String value) {
-              if(value.isEmpty) {
+            onChanged: (String value) {
+              if (value.isEmpty) {
                 _descriptionText = _defaultDescriptionText;
               }
               _descriptionText = value;
@@ -115,7 +119,7 @@ class _TicketCreatorState extends State<TicketCreator> {
           hintText: 'Task title',
         ),
         onChanged: (String value) {
-          if(value.isEmpty) {
+          if (value.isEmpty) {
             _taskTitleText = _defaultTaskTitleText;
           }
           _taskTitleText = value;
@@ -129,7 +133,8 @@ class _TicketCreatorState extends State<TicketCreator> {
         context,
         PageRouteBuilder<ui.Image>(
             pageBuilder: (BuildContext context, Animation<double> anim1,
-                Animation<double> anim2) => ScreenShotEditor(
+                    Animation<double> anim2) =>
+                ScreenShotEditor(
                   image: _image,
                 ),
             transitionsBuilder: (BuildContext context,
@@ -149,7 +154,8 @@ class _TicketCreatorState extends State<TicketCreator> {
   }
 
   Future<void> _loadImage() async {
-    final ByteData byteData = await _image.toByteData(format: ui.ImageByteFormat.png);
+    final ByteData byteData =
+        await _image.toByteData(format: ui.ImageByteFormat.png);
     setState(() {
       _imgBytes = byteData.buffer.asUint8List();
     });
