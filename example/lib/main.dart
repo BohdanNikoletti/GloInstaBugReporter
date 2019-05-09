@@ -39,11 +39,9 @@ class _MyHomePageState extends GloReportableWidgetState<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Test screenShot maker',
-            ),
             Text(
-              'tap',
+              'Just shake\ndevice twice',
+              textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.display1,
             ),
           ],

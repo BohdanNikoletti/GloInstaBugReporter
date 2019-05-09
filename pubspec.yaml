@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   oauth2: ^1.2.3
+  sensors: ^0.4.0+1
   flutter_webview_plugin: ^0.3.4
   shared_preferences: ^0.5.2
   json_serializable: ^2.2.2

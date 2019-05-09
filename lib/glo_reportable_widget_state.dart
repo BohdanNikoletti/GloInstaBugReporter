@@ -3,21 +3,34 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:glo_insta_bug_reporter/src/controllers/board_picker.dart';
+import 'package:glo_insta_bug_reporter/src/services/ShakeGesture.dart';
 
 abstract class GloReportableWidgetState<T extends StatefulWidget>
     extends State<T> {
   static GlobalKey previewContainer = GlobalKey();
-
+  ShakeDetector _detector;
+  final int shakesCount = 2;
+  @override
+  void initState() {
+    _detector = ShakeDetector.autoStart(onPhoneShake: (int times) {
+      if (shakesCount != 2) {
+        return;
+      }
+      _detector.stopListening();
+      _getScreenShotImage(context);
+    });
+    super.initState();
+  }
+  @override
+  void dispose() {
+    _detector.stopListening();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: RepaintBoundary(
-        key: previewContainer,
-        child: buildRootWidget(context),
-      ),
-      onTap: () {
-        _getScreenShotImage(context);
-      },
+    return RepaintBoundary(
+      key: previewContainer,
+      child: buildRootWidget(context),
     );
   }
 
