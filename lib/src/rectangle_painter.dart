@@ -21,7 +21,7 @@ class RectanglePainter extends CustomPainter {
       final Paint paint = Paint()
         ..color = Colors.redAccent
         ..strokeCap = StrokeCap.round
-        ..strokeWidth = 10.0;
+        ..strokeWidth = 5.0;
 
       for (int i = 0; i < points.length - 1; i++) {
         if (points[i] != null && points[i + 1] != null) {
