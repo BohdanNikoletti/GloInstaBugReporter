@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:glo_insta_bug_reporter/src/glo_reportable_widget_state.dart';
+import 'package:glo_insta_bug_reporter/glo_insta_bug_reporter.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Glo Bug Reporter',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const HomePage(
+        title: 'Home',
+      ),
+    );
+  }
+}
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key, this.title}) : super(key: key);
@@ -21,11 +39,9 @@ class _MyHomePageState extends GloReportableWidgetState<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Test screenShot maker',
-            ),
             Text(
-              'tap',
+              'Just shake\ndevice twice',
+              textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.display1,
             ),
           ],

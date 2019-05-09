@@ -29,6 +29,7 @@ Future<GloCard> create(
   if (response.statusCode == 201 || response.statusCode == 200) {
     return GloCard.fromJson(json.decode(response.body));
   } else {
+    TokenStorageService().setMobileToken('');
     throw Exception(json.decode(response.body));
   }
 }
@@ -46,6 +47,7 @@ Future<List<GloBoard>> getBoards({int page, int perPage}) async {
         .map((dynamic item) => GloBoard.fromJson(item))
         .toList(growable: false);
   } else {
+    TokenStorageService().setMobileToken('');
     throw Exception(json.decode(response.body));
   }
 }
@@ -63,6 +65,7 @@ Future<GloCard> updateCard(GloCard card, String boardId) async {
   if (response.statusCode == 200) {
     return GloCard.fromJson(json.decode(response.body));
   } else {
+    TokenStorageService().setMobileToken('');
     throw Exception(json.decode(response.body));
   }
 }
@@ -86,6 +89,7 @@ Future<Attachment> upload(
     final Map<String, dynamic> decodedResponse = json.decode(response.body);
     return Attachment.fromJson(decodedResponse);
   } else {
+    TokenStorageService().setMobileToken('');
     throw Exception(json.decode(response.body));
   }
 }
