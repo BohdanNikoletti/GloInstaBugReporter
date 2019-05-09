@@ -1,4 +1,5 @@
 library shake;
+
 import 'dart:async';
 import 'dart:math';
 import 'package:sensors/sensors.dart';
@@ -7,15 +8,15 @@ import 'package:flutter/foundation.dart';
 class ShakeGesture {
   ShakeGesture.waitForStart(
       {@required this.onPhoneShake,
-        this.shakeThresholdGravity = 2.7,
-        this.shakeSlopTimeMS = 500,
-        this.shakeCountResetTime = 3000});
+      this.shakeThresholdGravity = 2.7,
+      this.shakeSlopTimeMS = 500,
+      this.shakeCountResetTime = 3000});
 
   ShakeGesture.autoStart(
       {@required this.onPhoneShake,
-        this.shakeThresholdGravity = 2.7,
-        this.shakeSlopTimeMS = 500,
-        this.shakeCountResetTime = 3000}) {
+      this.shakeThresholdGravity = 2.7,
+      this.shakeSlopTimeMS = 500,
+      this.shakeCountResetTime = 3000}) {
     startListening();
   }
   final Function onPhoneShake;
