@@ -1,6 +1,6 @@
 name: glo_insta_bug_reporter
-description: A new Flutter package project.
-version: 0.0.1
+description: A package provides an easy way to instantly capture screenshot, edit it, describe and create card on glo board instantly in Flutter project.
+version: 0.1.0
 author: Bohdan Nikoletti <geekowldevelopers@gmail.com>
 homepage: https://github.com/BohdanNikoletti/GloInstaBugReporter
 
