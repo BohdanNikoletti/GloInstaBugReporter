@@ -4,14 +4,14 @@ import 'dart:math';
 import 'package:sensors/sensors.dart';
 import 'package:flutter/foundation.dart';
 
-class ShakeDetector {
-  ShakeDetector.waitForStart(
+class ShakeGesture {
+  ShakeGesture.waitForStart(
       {@required this.onPhoneShake,
         this.shakeThresholdGravity = 2.7,
         this.shakeSlopTimeMS = 500,
         this.shakeCountResetTime = 3000});
 
-  ShakeDetector.autoStart(
+  ShakeGesture.autoStart(
       {@required this.onPhoneShake,
         this.shakeThresholdGravity = 2.7,
         this.shakeSlopTimeMS = 500,
