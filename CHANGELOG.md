@@ -1,4 +1,4 @@
-## [0.0.1] - May 6 2019
+## [0.0.1] - May 9, 2019
 ### Features
 - Capture screenshot
 - Add description and title for created task
