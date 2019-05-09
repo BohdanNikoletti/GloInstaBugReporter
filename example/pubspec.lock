@@ -70,21 +70,21 @@ packages:
       name: build_runner_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.4"
+    version: "3.0.5"
   built_collection:
     dependency: transitive
     description:
       name: built_collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.0"
+    version: "4.2.1"
   built_value:
     dependency: transitive
     description:
       name: built_value
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.4.0"
+    version: "6.5.0"
   charcode:
     dependency: transitive
     description:
@@ -164,7 +164,7 @@ packages:
       name: flutter_webview_plugin
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.4"
+    version: "0.3.5"
   front_end:
     dependency: transitive
     description:
@@ -347,6 +347,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.3"
+  sensors:
+    dependency: transitive
+    description:
+      name: sensors
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0+1"
   shared_preferences:
     dependency: transitive
     description:
